@@ -8,16 +8,24 @@ public class ArrivalOfTheGeneral {
         
         int n = sc.nextInt();
         int a[] = new int[n];
+        int minValue = Integer.MAX_VALUE;
+        int minIndex = 0;
+        int maxValue = Integer.MIN_VALUE;
+        int maxIndex = 0;
         for(int i = 0; i < n; i++){
             a[i] = sc.nextInt();
+            if(a[i] > maxValue){
+                maxIndex = i;
+                maxValue = a[i];
+            }
+            if(a[i] <= minValue){
+                minIndex = i;
+                minValue = a[i];
+            }
         }
         sc.close();
 
-        int maxIndex = 0;
-        int minIndex = 0;
-        for(int i = 0; i < a.length; i++){
-            if(a[i] > a[maxIndex]) maxIndex = i;
-            if(a[i] < a[minIndex]) minIndex = i;
-        }
+        if(maxIndex > minIndex) System.out.println((maxIndex-1) + (n-minIndex) - 1);
+        else System.out.println((maxIndex-1) + (n-minIndex));
     }
 }
