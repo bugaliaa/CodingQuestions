@@ -4,9 +4,16 @@ import java.util.*;
 
 public class FIzzBuzz {
     public static void main(String[] args) {
-        
+
+        Scanner sc = new Scanner(System.in);
+        int A = sc.nextInt();
+        sc.close();
+
+        ArrayList<String> ans = fizzBuzz(A);
+        for(String s: ans) System.out.println(s);
+
     }
-    public ArrayList<String> fizzBuzz(int A) {
+    public static ArrayList<String> fizzBuzz(int A) {
         int count3 = 1;
         int count5 = 1;
         ArrayList<String> list = new ArrayList<>();
