@@ -13,15 +13,10 @@ public class LargestCoprimeDivisor {
     }
 
     public static int cpFact(int A, int B) {
-        int x = Integer.MIN_VALUE;
-        for(int i = 2; i <= A; i++){
-            if(A%i == 0){
-                int y = gcd(B, i);
-                if(y == 1) x = Math.max(i, x);
-            }
+        while(gcd(A, B) != 1){
+            A = A / gcd(A, B);
         }
-        if(x == Integer.MIN_VALUE) return 1;
-        return x;
+        return A;
     }
     public static int gcd(int a, int b){
         if(b == 0) return a;
