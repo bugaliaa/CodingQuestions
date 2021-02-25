@@ -6,12 +6,22 @@ public class Problem432B {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
-        int teams[][] = new int[n][2];
+        int a[] = new int[n];
+        int b[] = new int[n];
+        
+        int max = Integer.MIN_VALUE;
         for(int i = 0; i < n; i++){
-            teams[i][0] = sc.nextInt();
-            teams[i][1] = sc.nextInt();
+            a[i] = sc.nextInt();
+            b[i] = sc.nextInt();
+            max = Math.max(max, Math.max(a[i], b[i]));            
         }
         sc.close();
+        int[] temp = new int[max+1];
 
+        for(int i = 0; i < n; i++) temp[a[i]]++;
+
+        for(int i = 0; i < n; i++){
+            System.out.println(((n-1)+temp[b[i]]) + " " + ((n-1)-temp[b[i]]));
+        }
     }
 }
