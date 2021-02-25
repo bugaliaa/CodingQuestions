@@ -1,6 +1,8 @@
 package CodeForces.Div2A;
 
-import java.util.*;
+import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Array {
     public static void main(String[] args) {

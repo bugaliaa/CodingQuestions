@@ -1,6 +1,6 @@
 package CodeForces.Div2B;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Problem432B {
     public static void main(String[] args) {
@@ -12,5 +12,6 @@ public class Problem432B {
             teams[i][1] = sc.nextInt();
         }
         sc.close();
+
     }
 }
