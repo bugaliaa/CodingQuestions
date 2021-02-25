@@ -8,16 +8,14 @@ public class Problem362B {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         int m = sc.nextInt();
-
-        if(m == 0){
-            System.out.println("YES");
-            return;
-        }
         int[] d = new int[m];
         
         for(int i = 0; i < m; i++) d[i] = sc.nextInt();
         sc.close();
-
+        if(m == 0){
+            System.out.println("YES");
+            return;
+        }
         Arrays.sort(d);
         
         if(d[0] == 1 || d[m-1] == n){
