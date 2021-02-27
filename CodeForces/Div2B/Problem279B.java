@@ -1,6 +1,5 @@
 package CodeForces.Div2B;
 
-import java.util.*;
 import java.io.*;
 
 public class Problem279B {
