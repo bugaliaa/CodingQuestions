@@ -2,6 +2,8 @@ package Algorithms.LinearSearch;
 
 import java.io.*;
 
+// https://www.codechef.com/problems/SEGM01 
+
 public class SEGM01 {
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
