@@ -1,6 +1,8 @@
 package Algorithms.HashingBasic;
 
 import java.io.*;
+import java.util.*;
+import java.util.Map.Entry;
 
 // https://www.hackerearth.com/practice/data-structures/hash-tables/basics-of-hash-tables/practice-problems/algorithm/maximum-occurrence-9/
 
@@ -10,14 +12,22 @@ public class MaximumOccurence {
         String s = br.readLine();
         br.close();
 
-        int[] table = new int[128];
+        Map<Character, Integer> map = new HashMap<>();
         for(char c: s.toCharArray()){
-            table[(int)c]++;
+            if(map.containsKey(c)){
+                map.replace(c, map.get(c)+1);
+            }else{
+                map.put(c, 1);
+            }
         }
-        int max = 0;
-        for(int i = 1; i < 128; i++){
-            if(table[i] > table[i-1]) max = i;
+        Entry<Character, Integer> max = null;
+        for(Entry<Character, Integer> e: map.entrySet()){
+            if(max == null || e.getValue().compareTo(max.getValue()) > 0){
+                max = e;
+            }else if(e.getValue().compareTo(max.getValue()) == 0 && (int)e.getKey() < (int)max.getKey()){
+                max = e;
+            }
         }
-        System.out.println(table[max] + " " + (char)max);
+        System.out.println(max.getKey() + " " + max.getValue());
     }
 }
