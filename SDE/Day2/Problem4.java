@@ -1,5 +1,8 @@
 package SDE.Day2;
 
+// https://www.geeksforgeeks.org/counting-inversions/
+// Count Inversions
+
 public class Problem4 {
     public static void main(String[] args) {
         int a[] = {5, 4, 3, 2, 1};
