@@ -1,5 +1,8 @@
 package SDE.Day3;
 
+//https://leetcode.com/problems/unique-paths/
+// Unique Paths without DP
+
 public class Problem6 {
     public static void main(String[] args) {
         System.out.println(uniquePaths(3, 7));
