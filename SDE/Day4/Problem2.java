@@ -1,10 +1,18 @@
 package SDE.Day4;
 
+// https://leetcode.com/problems/4sum/
+// 4SUm (leetcode)
+
 import java.util.*;
 
 public class Problem2 {
     public static void main(String[] args) {
-        
+        int nums[] = {1,0,-1,0,-2,2};
+        List<List<Integer>> ans = fourSum(nums, 0);
+        for(List<Integer> i: ans){
+            for(int j: i) System.out.print(j + " ");
+            System.out.println();
+        }
     }
     public static List<List<Integer>> fourSum(int[] nums, int target) {
         List<List<Integer>> res = new ArrayList<>();
