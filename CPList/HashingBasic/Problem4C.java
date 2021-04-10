@@ -1,4 +1,4 @@
-package Algorithms.HashingBasic;
+package CPList.HashingBasic;
 
 import java.util.*;
 import java.io.*;

@@ -1,4 +1,4 @@
-package Algorithms.SlidingWindow;
+package CPList.SlidingWindow;
 
 import java.util.*;
 

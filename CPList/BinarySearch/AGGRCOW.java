@@ -1,4 +1,4 @@
-package Algorithms.BinarySearch;
+package CPList.BinarySearch;
 
 // https://www.spoj.com/problems/AGGRCOW/
 

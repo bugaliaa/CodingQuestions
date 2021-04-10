@@ -1,4 +1,4 @@
-package Algorithms.PrefixSum;
+package CPList.PrefixSum;
 
 // https://www.spoj.com/problems/CSUMQ/
 

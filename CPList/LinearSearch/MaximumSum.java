@@ -1,4 +1,4 @@
-package Algorithms.LinearSearch;
+package CPList.LinearSearch;
 
 import java.util.Scanner;
 

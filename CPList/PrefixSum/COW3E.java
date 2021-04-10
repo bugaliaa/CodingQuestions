@@ -1,4 +1,4 @@
-package Algorithms.PrefixSum;
+package CPList.PrefixSum;
 
 import java.util.Scanner;
 
