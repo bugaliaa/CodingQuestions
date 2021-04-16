@@ -3,7 +3,7 @@ package SDE.Day6;
 // https://leetcode.com/problems/palindrome-linked-list
 // Palindrome Linked List
 
-public class Problem3 {
+public class Problem4 {
     public static class ListNode{
         int val;
         ListNode next;
