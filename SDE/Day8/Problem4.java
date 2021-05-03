@@ -19,7 +19,7 @@ class itemComparator implements Comparator<Item>{
     }
 }
 
-public class Problem9 {
+public class Problem4 {
     double fractionalKnapsack(int W, Item arr[], int n){
         Arrays.sort(arr, new itemComparator());
 
