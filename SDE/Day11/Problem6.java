@@ -10,30 +10,33 @@ public class Problem6 {
         System.out.println(kthElement(arr1, arr2, arr1.length, arr2.length, 5));
     }
     public static long kthElement( int arr1[], int arr2[], int n, int m, int K){
-        int a[] = new int[n+m];
+        int k = 0;
         int i = 0;
         int j = 0;
-        int k = 0;
         while(i < n && j < m){
-            if(arr1[i] <= arr2[j]){
-                a[k] = arr1[i];
+            if(arr1[i] < arr2[j]){
+                k++;
+                if(k == K) return arr1[i];
                 i++;
             }else{
-                a[k] = arr2[j];
+                k++;
+                if(k == K) return arr2[j];
                 j++;
             }
-            k++;
         }
+
         while(i < n){
-            a[k] = arr1[i];
             k++;
+            if(k == K) return arr1[i];
             i++;
         }
+
         while(j < m){
-            a[k] = arr2[j];
             k++;
+            if(k == K) return arr2[j];
             j++;
         }
-        return a[K-1];
+
+        return -1;
     }
 }
