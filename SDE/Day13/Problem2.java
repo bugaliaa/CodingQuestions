@@ -1,5 +1,7 @@
 package SDE.Day13;
 
+// Implementation of Queue using Arrays
+
 public class Problem2 {
     static int n = 5;
     static int[] queue = new int[n];
@@ -9,19 +11,40 @@ public class Problem2 {
         
     }
     public static void enqueue(int data){
-        rear++;
-        if(rear < n) queue[rear] = data;
-        else System.out.println("Overflow");
+        if(isFull()) System.out.println("OVERFLOW");
+        else if(isEmpty()){
+            front = rear = 0;
+            queue[rear] = data;
+        }else{
+            rear++;
+            queue[rear] = data;
+        }
     }
     public static void dequeue(){
-        front++;
+        if(isEmpty()) System.out.println("UNDERFLOW");
+        else if(front == rear){
+            front = rear = -1;
+        }else{
+            System.out.println(queue[front]);
+            front++;
+        }
     }
     public static boolean isEmpty(){
-        if(rear == front) return true;
+        if(front == -1 && rear == -1) return true;
         else return false;
     }
     public static boolean isFull(){
-        if(rear == n) return true;
-        else return false;
+        if(rear == n-1) return true;
+        return false;
+    }
+    public static int peek(){
+        if(isEmpty()) return -1;
+        return queue[front];
+    }
+    public static void display(){
+        if(isEmpty()) System.out.println("QUEUE EMPTY");
+        else{
+            for(int i = front; i <= rear; i++) System.out.print(queue[i] + " ");
+        }
     }
 }
