@@ -3,6 +3,7 @@ package SDE.Day13;
 import java.util.*;
 
 // Implementation of Queues using Stack Part1 (Costly dequeue)
+// Rear is at top of stack and Front is at bottom
 
 public class Problem7 {
     Stack<Integer> s1 = new Stack<>();
