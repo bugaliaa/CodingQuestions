@@ -11,7 +11,7 @@ public class Problem5 {
         q2.add(data);
         while(!q1.isEmpty()){
             q2.add(q1.peek());
-            q1.poll();
+            q1.remove();
         }
         Queue<Integer> q = q1;
         q1 = q2;
@@ -19,7 +19,7 @@ public class Problem5 {
     }
     public void pop(){
         if(q1.isEmpty()) return;
-        q1.poll();
+        q1.remove();
     }
     public int peek(){
         if(q1.isEmpty()) return -1;
