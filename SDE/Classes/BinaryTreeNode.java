@@ -1,9 +1,9 @@
 package SDE.Classes;
 
 public class BinaryTreeNode<T> {
-    T data;
-    BinaryTreeNode<T> left;
-    BinaryTreeNode<T> right;
+    public T data;
+    public BinaryTreeNode<T> left;
+    public BinaryTreeNode<T> right;
 
     public BinaryTreeNode(){
 
