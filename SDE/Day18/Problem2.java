@@ -9,6 +9,7 @@ import SDE.Classes.LeetCode.TreeNode;
 public class Problem2 {
     public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> list = new ArrayList<>();
+        if(root == null) return null;
         Queue<TreeNode> q = new ArrayDeque<>();
         boolean order = true;
         q.add(root);
