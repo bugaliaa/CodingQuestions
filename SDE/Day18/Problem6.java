@@ -8,15 +8,17 @@ import SDE.Classes.LeetCode.TreeNode;
 public class Problem6 {
     public boolean isBalanced(TreeNode root) {
         if(root == null) return true;
-        int left = 0;
-        int right = 0;
-        if(root.left != null) left = height(root.left);
-        if(root.right != null) right = height(root.right);
-        if(Math.abs(left - right) <= 1 && isBalanced(root.left) && isBalanced(root.right)) return true;
-        return false; 
+        return dfsHeight(root) != -1;
     }
-    public int height(TreeNode root){
+    public int dfsHeight(TreeNode root){
         if(root == null) return 0;
-        return 1 + Math.max(height(root.left), height(root.right));
+
+        int leftHeight = dfsHeight(root.left);
+        if(leftHeight == -1) return -1;
+        int rightHeight = dfsHeight(root.right);
+        if(rightHeight == -1) return -1;
+
+        if(Math.abs(leftHeight - rightHeight) > 1) return -1;
+        return Math.max(leftHeight, rightHeight) + 1;
     }
 }
