@@ -2,22 +2,36 @@ package SDE.BinarySearchTree;
 
 import SDE.Classes.LeetCode.TreeNode;
 
-public class CheckIfBST {
-    public boolean isBST(TreeNode root){
-        if(root == null) return true;
-        
-        int leftMax = max(root.left);
-        int rightMin = min(root.right);
+class isBSTReturn{
+    boolean isBST;
+    int max;
+    int min;
+}
 
-        if(root.val > leftMax && root.val <= rightMin && isBST(root.left) && isBST(root.right)) return true;
-        return false;
+public class CheckIfBST {
+    public isBSTReturn isBST2(TreeNode root){
+        if(root == null){
+            isBSTReturn output = new isBSTReturn();
+            output.isBST = true;
+            output.max = Integer.MIN_VALUE;
+            output.min = Integer.MAX_VALUE;
+            return output;
+        }
+        isBSTReturn leftOutput = isBST2(root.left);
+        isBSTReturn rightOutput = isBST2(root.right);
+        int min = Math.min(root.val, Math.min(leftOutput.min, rightOutput.min));
+        int max = Math.max(root.val, Math.max(leftOutput.max, rightOutput.max));
+        boolean isBSTFinal = root.val > leftOutput.max && root.val <= rightOutput.min && leftOutput.isBST && rightOutput.isBST;
+        
+        isBSTReturn output = new isBSTReturn();
+        output.max = max;
+        output.min = min;
+        output.isBST = isBSTFinal;
+        
+        return output;
     }
-    public int max(TreeNode root){
-        if(root == null) return Integer.MIN_VALUE;
-        return Math.max(root.val, Math.max(max(root.left), max(root.right)));
-    }
-    public int min(TreeNode root){
-        if(root == null) return Integer.MAX_VALUE;
-        return Math.min(root.val, Math.min(min(root.left), min(root.right)));
+    public boolean isBST(TreeNode root){
+        isBSTReturn t = new isBSTReturn();
+        return t.isBST;
     }
 }
