@@ -9,6 +9,7 @@ class isBSTReturn{
 }
 
 public class CheckIfBST {
+    // Method 1
     public isBSTReturn isBST2(TreeNode root){
         if(root == null){
             isBSTReturn output = new isBSTReturn();
@@ -29,6 +30,14 @@ public class CheckIfBST {
         output.isBST = isBSTFinal;
         
         return output;
+    }
+    // Method 2
+    public boolean isBST3(TreeNode root, int min, int max){
+        if(root == null) return true;
+        if(root.val < min || root.val > max) return false;
+        boolean isLeft = isBST3(root.left, min, root.val-1);
+        boolean isRight = isBST3(root.right, root.val+1, max);
+        return isLeft && isRight;
     }
     public boolean isBST(TreeNode root){
         isBSTReturn t = new isBSTReturn();
