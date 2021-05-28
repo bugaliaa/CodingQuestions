@@ -31,7 +31,7 @@ public class Problem7 {
         bst left = helper(node.left, maxSum);
         bst right = helper(node.right, maxSum);
 
-        boolean isBST = node.val >= left.max && node.val <= right.min && left.isBST && right.isBST;
+        boolean isBST = node.val > left.max && node.val < right.min && left.isBST && right.isBST;
         int sum = node.val + left.sum + right.sum;
         
         if(isBST) maxSum[0] = Math.max(maxSum[0], sum);
