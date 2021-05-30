@@ -7,6 +7,7 @@ import java.util.*;
 public class BipartiteDFS {
     public boolean isBipartite(int V, ArrayList<ArrayList<Integer>> adj){
         int colors[] = new int[V+1];
+        Arrays.fill(colors, -1);
         for(int i = 1; i <= V; i++){
             if(colors[i] == -1){
                 if(!dfs(i, adj, colors)) return false;
