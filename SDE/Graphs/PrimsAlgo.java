@@ -1,6 +1,6 @@
 package SDE.Graphs;
 
-import java.util.ArrayList;
+import java.util.*;
 
 // Prim's Algorithm for Minimum Spanning Tree
 
@@ -26,18 +26,12 @@ public class PrimsAlgo {
             parent[i] = -1;
         }
 
+        PriorityQueue<Pair> pq = new PriorityQueue<>((a, b) -> b.getWeight() - a.getWeight());        
         key[0] = 0;
+        pq.add(new Pair(0, key[0]));
 
         for(int i = 0; i < V-1; i++){
-            int mini = Integer.MAX_VALUE;
-            int u = 0;
-
-            for(int v = 0; v < V; v++){
-                if(!mstSet[v] && key[v] < mini){
-                    mini = key[v];
-                    u = v;
-                }
-            }
+            int u = pq.poll().getV();
 
             mstSet[u] = true;
 
@@ -45,6 +39,7 @@ public class PrimsAlgo {
                 if(!mstSet[it.getV()] && it.getWeight() < key[it.getV()]){
                     key[it.getV()] = it.getWeight();
                     parent[it.getV()] = u;
+                    pq.add(new Pair(it.getV(), key[it.getV()]));
                 }
             }
         }
