@@ -26,7 +26,7 @@ public class DijkstrasAlgo {
         while(!pq.isEmpty()){
             Pair node = pq.poll();
             for(Pair it: adj.get(node.getV())){
-                if(it.getWeight()+node.getWeight() < dist[it.getV()]){
+                if(it.getWeight()+dist[node.getV()] < dist[it.getV()]){
                     dist[it.getV()] = it.getWeight()+node.getWeight();
                     pq.add(new Pair(it.getV(), dist[it.getV()]));
                 }
