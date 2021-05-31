@@ -40,8 +40,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 <br />
 
 This repository is made to help aspiring software developers in learning Data Structures and Algorithms for their coding interviews.
@@ -132,3 +130,4 @@ Project Link: [https://github.com/bugaliaa/codingquestions](https://github.com/b
 * All the coding websites for giving such quality questions and providing a consistent platform.
 * Numerous fellow youtubers and people in the discussion forums of the question to help me to understand and solve the question very efficiently and teaching me a lot.
 
+## Thank you and best of luck!
