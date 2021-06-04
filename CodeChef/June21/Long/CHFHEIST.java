@@ -12,7 +12,7 @@ public class CHFHEIST {
             int P = sc.nextInt();
             int Q = sc.nextInt();
 
-            
+            System.out.println(d + D + P + Q);
         }
         sc.close();
     }
