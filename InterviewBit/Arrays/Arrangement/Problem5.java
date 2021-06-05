@@ -20,9 +20,8 @@ public class Problem5 {
             return intervals;
         }
 
-        int n = intervals.size();
         int i = 0;
-        while(i < n){
+        while(i < intervals.size()){
             if(intervals.get(i).end < newInterval.start){
                 i++;
             }else if(intervals.get(i).start > newInterval.end){
@@ -34,7 +33,7 @@ public class Problem5 {
                 intervals.remove(i);
             }
         }
-        if(i == n) intervals.add(newInterval);
+        if(i == intervals.size()) intervals.add(newInterval);
         return intervals;
     }
 }
