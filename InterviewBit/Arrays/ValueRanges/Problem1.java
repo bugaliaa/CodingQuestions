@@ -1,11 +1,11 @@
-package InterviewBit.Arrays.Arrangement;
+package InterviewBit.Arrays.ValueRanges;
 
 // https://www.interviewbit.com/problems/merge-intervals/
 // Merge Intervals
 
 import java.util.*;
 
-public class Problem5 {
+public class Problem1 {
     class Interval{
         int start;
         int end;
