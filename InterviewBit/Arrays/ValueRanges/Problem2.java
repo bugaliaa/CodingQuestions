@@ -13,7 +13,7 @@ public class Problem2 {
         Interval(int s, int e){start = s; end = e;}
     }
     public ArrayList<Interval> merge(ArrayList<Interval> intervals) {
-        ArrayList<Interval> list = new ArrayList<>()
+        ArrayList<Interval> list = new ArrayList<>();
 
         if(intervals == null || intervals.size() == 0) return intervals;
         Collections.sort(intervals, (a, b) -> a.start - b.start);
