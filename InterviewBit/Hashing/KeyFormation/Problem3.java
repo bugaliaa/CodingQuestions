@@ -30,12 +30,12 @@ public class Problem3 {
                         temp.add(i);
                         temp.add(j);
 
-                        if(list.size() == 0) list = temp;
+                        if(list.size() == 0) list.addAll(temp);
                         else{
-                            for(int k = 0; i < list.size(); k++){
+                            for(int k = 0; k < list.size(); k++){
                                 if(list.get(k) < temp.get(k)) break;
                                 if(list.get(k) > temp.get(k)){
-                                    for(int l = 0; i < 4; l++) list.set(l, temp.get(l));
+                                    for(int l = 0; l < 4; l++) list.set(l, temp.get(l));
                                     break;
                                 }
                             }
