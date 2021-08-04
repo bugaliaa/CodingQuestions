@@ -24,11 +24,11 @@ public class Problem10533 {
     static void sieve(){
         Arrays.fill(prime, true);
         prime[0] = prime[1] = false;
-        for(int i = 2; i <= 1000001; i++){
+        for(int i = 2; i < 1000001; i++){
             dprimes[i] = dprimes[i-1];
             if(prime[i]){
                 if(prime[digitSum(i)]) ++dprimes[i];
-                for(int j = i*i; j <= 1000001; j += i) prime[j] = false;
+                for(int j = i+i; j < 1000001; j += i) prime[j] = false;
             }
         }
     }
