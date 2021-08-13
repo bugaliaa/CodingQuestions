@@ -18,30 +18,50 @@ public class MinMaxRiddle {
 
     public static long[] riddle(long[] arr) {
         int n = arr.length;
-        long[] r = new long[n];
-        for(int i = 1; i <= n; i++){
-            List<Long> list = new LinkedList<>();
-            long wMin = Integer.MAX_VALUE;
-            long max = Integer.MIN_VALUE;
-            for(int j = 0; j < i; j++){
-                list.add(arr[j]);
-                wMin = Math.min(wMin, arr[j]);
-            }
-            max = Math.max(max, wMin);
-            for(int j = i; j < n; j++){
-                list.remove(0);
-                list.add(arr[j]);
-                if(list.size() == 1){
-                    wMin = arr[j];
-                }else{
-                    List<Long> temp = new LinkedList<>(list);
-                    Collections.sort(temp);
-                    wMin = temp.get(0);
-                }
-                max = Math.max(max, wMin);
-            }
-            r[i-1] = max;
+
+        long temp[] = new long[n+1];
+
+        Stack<Integer> s = new Stack<>();
+        int left[] = new int[n];
+        int right[] = new int[n];
+
+        for(int i = 0; i < n; i++){
+            left[i] = -1;
+            right[i] = n;
         }
-        return r;
+
+        for(int i = n-1; i >= 0; i--){
+            while(!s.empty() && arr[s.peek()] >= arr[i]) s.pop();
+            if(!s.empty()){
+                right[i] = s.peek();
+            }
+            s.push(i);
+        }
+
+        while(!s.empty()) s.pop();
+
+        for(int i = 0; i < n; i++){
+            while(!s.empty() && arr[s.peek()] >= arr[i]) s.pop();
+            if(!s.empty()){
+                left[i] = s.peek();
+            }
+            s.push(i);
+        }
+
+        for(int i = 0; i < n; i++){
+            int len = right[i] - left[i] - 1;
+            temp[len] = Math.max(temp[len], arr[i]);
+        }
+
+        for(int i = n-1; i >= 1; i--){
+            temp[i] = Math.max(temp[i], temp[i+1]);
+        }
+
+        long ans[] = new long[n];
+        for(int i = 1; i <= n; i++){
+            ans[i-1] = temp[i];
+        }
+
+        return ans;
     }
 }
