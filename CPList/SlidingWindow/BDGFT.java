@@ -1,7 +1,5 @@
 package CPList.SlidingWindow;
 
-import java.util.Deque;
-import java.util.LinkedList;
 import java.util.Scanner;
 
 public class BDGFT {
@@ -10,29 +8,25 @@ public class BDGFT {
         int t = sc.nextInt();
         sc.nextLine();
         while(t-- > 0){
+            int c = 0;
             char[] s = sc.nextLine().toCharArray();
-            int ans = 0;
-            int count_z = 0;
-            int count_o = 0;
-            Deque<Character> dq = new LinkedList<>();            
-            for(int i = 1; ((i*i) + i) <= s.length; i++){
-                for(int j = i; j <= ((i*i) + i); j++){
-                    dq.add(s[j-1]);
-                    if(s[j-1] == '0') count_z++;
-                    else count_o++;
+            int n = s.length;
+
+            for(int i = 1; i*i+i <= n; i++){
+                int c1 = 0;
+                int j = 0;
+                for(; j < i*i+i; j++){
+                    if(s[j] == '1') c1++;
+
                 }
-                if(count_o*count_o == count_z) ans++;
-                for(int j = i; j <= ((i*i) + i); j++){
-                    if(dq.getFirst() == '0') count_z--;
-                    else count_o--;
-                    dq.removeFirst();
-                    dq.add(s[j-1]);
-                    if(s[j-1] == '0') count_z++;
-                    else count_o++;
-                    if(count_o*count_o == count_z) ans++;
+                if(c1 == i) c++;
+                for(; j < n; j++){
+                    if(s[j - (i*i+i)] == '1') c1--;
+                    if(s[j] == '1') c1++;
+                    if(c1 == i) c++;
                 }
             }
-            System.out.println(ans);
+            System.out.println(c);
         }
         sc.close();
     }
