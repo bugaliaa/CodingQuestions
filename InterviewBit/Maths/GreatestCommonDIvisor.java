@@ -14,4 +14,5 @@ public class GreatestCommonDIvisor {
         if(B == 0) return A;
         return gcd(B, A%B);
     }
+    //
 }
